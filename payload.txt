@@ -1,0 +1,28 @@
+REM TITLE BadAppleAscii
+REM AUTHOR Dylan Caldwell
+REM DESCRIPTION Creates Bad Apple in CMD Terminal
+
+REM Shell Instance
+DELAY 5000
+GUI r
+DELAY 300
+BACKSPACE
+STRING cmd
+CTRL-SHIFT ENTER
+DELAY 300
+LEFTARROW
+DELAY 300
+STRING color 0F
+ENTER
+DELAY 200
+STRING powershell -Exec Bypass -NonI
+ENTER 
+DELAY 300
+STRING $uP = Get-WMIObject Win32_Volume | ?{ $_.Label -eq 'DUCKY' } | select name; cd $uP.name;
+STRING Import-Module .\DuckyI2A; is2a ./Frames -FitConsoleHeight -Resolution High
+ENTER
+DELAY 300
+ENTER
+
+REM STRING do set myd=%d &
+REM STRING powershell Import-Module %myd%\DuckyI2A; is2a .\Frames -FitConsoleHeight -Resolution High"
